@@ -13,3 +13,11 @@ ul, li {
     margin: 0 auto;
 
 }
+
+#list_wrap{
+    margin-left: -40px;
+}
+
+.done {
+    text-decoration: line-through;
+}
