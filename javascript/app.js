@@ -29,9 +29,16 @@
         span.className = "task";
         span.innerText = text;
 
+        var a = document.createElement('a');
+        a.className = "btn delete list";
+        a.innerText = "削除";
+        a.addEventListener('click', deleteTask, false);
+
         var p = document.createElement('p');
+        p.className = "task-wrap";
         p.appendChild(inputCheckBox);
         p.appendChild(span);
+        p.appendChild(a);
 
         var li = document.createElement('li');
         li.appendChild(p);
@@ -41,16 +48,23 @@
     for (var i = 0; i < checkboxes.length;i++){
         checkboxes[i].addEventListener('click', onChecked, false);
     }
-    
+  
+    function deleteTask(){
+        var self = this;
+        var list = self.parentNode.parentNode;
+        var ul = list.parentNode;
+        ul.removeChild(list);
+    }
+
     function onChecked(){
         var self = this;
         var parentTag = self.parentNode;
-        if (parentTag.className == "done")
+        if (parentTag.classList.contains('done'))
         {
-            parentTag.className = "";
+            parentTag.classList.remove('done');
         }
         else {
-            parentTag.className = "done";
+            parentTag.classList.add("done");
         }
         return false;
     }
