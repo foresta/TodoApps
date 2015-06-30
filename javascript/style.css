@@ -64,7 +64,10 @@ ul, li {
 }
 
 .input-wrap .btn{
-    position: absolute;
-    left: 230px;
-    top : 0;
+    width: 100px;
+    text-align: center;
+    display: inline-block;
+    margin-top: -7px;
+    vertical-align: middle;
+    margin-left: 10px;
 }
