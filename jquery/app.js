@@ -28,26 +28,15 @@
     });
 
     for (var i = 0; i < checkboxes.length;i++){
-        checkboxes[i].addEventListener('click', onChecked, false);
+        checkboxes[i].on('click', onChecked);
     }
   
     function deleteTask(){
-        var self = this;
-        var list = self.parentNode.parentNode;
-        var ul = list.parentNode;
-        ul.removeChild(list);
+        $(this).closest('li').remove();
     }
 
     function onChecked(){
-        var self = this;
-        var parentTag = self.parentNode;
-        if (parentTag.classList.contains('done'))
-        {
-            parentTag.classList.remove('done');
-        }
-        else {
-            parentTag.classList.add("done");
-        }
+        $(this).parent().toggleClass('done');
         return false;
     }
 })();
