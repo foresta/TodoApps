@@ -37,6 +37,5 @@
 
     function onChecked(){
         $(this).parent().toggleClass('done');
-        return false;
     }
 })();
