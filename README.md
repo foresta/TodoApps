@@ -5,5 +5,5 @@
 * javascript
 * jQuery
 * angularJS
-* view.js
+* vue.js
 * ReactJS
