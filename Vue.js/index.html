@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>TODOアプリ</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <div class="wrap">
+            <h1>TODOリスト</h1>
+            <div class="input-wrap" id="input_wrap">
+                <input type="text" id="input" v-model="input_task" v-on="keyup: addTask | key 13" />
+                <a class="btn submit" id="submit" v-on="click: addTask">タスク登録</a>
+            </div>
+            <div>
+                <ul id="list_wrap">
+                    <li v-repeat="todo: todos">
+                        <p class="task-wrap {{todo.done ? 'done' : ''}}">
+                        <input type="checkbox" class="check" v-on="click: toggle(this)" />
+                        <span class="task">{{todo.content}}</span>
+                        <a class="btn delete list" v-on="click: deleteTask($index)">削除</a>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.12.6/vue.min.js"></script>
+        <script type="text/javascript" src="./app.js"></script>
+    </body>
+</html>
